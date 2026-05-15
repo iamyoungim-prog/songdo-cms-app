@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  
+  <!-- ✅ PWA 핵심 설정 -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="학원관리">
+  <meta name="theme-color" content="#2d1065">
+  <meta name="application-name" content="학원관리">
+  
+  <!-- 앱 아이콘 (기존 이미지 그대로 사용) -->
+  <link rel="apple-touch-icon" href="https://drive.google.com/uc?export=view&id=1cATErXLRTw9viq9b_T_SwiSj5q1D7Og0">
+  <link rel="icon" href="https://drive.google.com/uc?export=view&id=1cATErXLRTw9viq9b_T_SwiSj5q1D7Og0">
+  
+  <!-- PWA manifest -->
+  <link rel="manifest" href="manifest.json">
+  
+  <title>학원관리</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: linear-gradient(135deg, #1a0533 0%, #2d1065 25%, #1e3a8a 55%, #0f4c75 80%, #134e4a 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: -apple-system, BlinkMacSystemFont, 'Noto Sans KR', sans-serif;
+    }
+    .logo {
+      font-size: 28px;
+      font-weight: 900;
+      background: linear-gradient(135deg, #f9a8d4, #c4b5fd, #93c5fd);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 16px;
+      letter-spacing: -0.8px;
+    }
+    .loading {
+      color: rgba(255,255,255,0.6);
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .spinner {
+      width: 20px; height: 20px;
+      border: 2px solid rgba(255,255,255,0.2);
+      border-top-color: #c4b5fd;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>
+</head>
+<body>
+  <div class="logo">🏫 학원관리</div>
+  <div class="loading">
+    <div class="spinner"></div>
+    <span>불러오는 중...</span>
+  </div>
+
+  <script>
+    // ✏️ 여기에 본인의 Google Apps Script 배포 URL을 붙여넣으세요!
+    const APP_URL = "https://script.google.com/macros/s/AKfycbzvWOE6OuAr2nY4xwOOKupBNyDqlV80HDRNZroY1suVx6HFcxXNCazGp76aqneZu-5c/exec";
+    
+    // 잠깐 로딩화면 보여주고 이동 (앱처럼 보이는 효과)
+    setTimeout(function() {
+      window.location.replace(APP_URL);
+    }, 800);
+  </script>
+</body>
+</html>
